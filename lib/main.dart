@@ -55,14 +55,13 @@ class HomeScreen extends StatelessWidget{
 
             ),
 
-            RichText(text: TextSpan(
-                text: 'Flutter batch 4 ',
+            Text('Flutter Batch 4 ',
                 style: TextStyle(
                     color: Colors.blue,
                     fontSize: 28
                 ),
 
-            )),
+            ),
 
           ],
         )
