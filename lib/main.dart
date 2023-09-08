@@ -1,70 +1,93 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp (MyApp());
+void main(){
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget{
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(                  /// MaterialApp - set all config of an app
 
+    return MaterialApp(
       debugShowCheckedModeBanner: true,
-
       home: HomeScreen(),
-      title: "OSTAD APP",
-
+      title: 'LiveTEST APP',
     );
   }
 }
 
 class HomeScreen extends StatelessWidget{
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(                  /// Scaffold (homescreen) 2 part - appBar & body
+    return Scaffold(
 
-      backgroundColor: Colors.purple,
+        backgroundColor: Colors.white,
 
-      appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        centerTitle: true,
-        title: Text("HOME"),
-        leading: Icon(Icons.store, size: 36, color: Colors.yellow,),
-
-      ),
-
-      /* body: Center(
-    child: Text("Home Screen", style: TextStyle(        // SINGLE WIDGET
-      color:  Colors.white,
-      fontSize: 30,
-      fontWeight: FontWeight.bold
-    ),),
-    ),
-*/
-
-      body: Column(                                  // MULTIPLE WIDGET - Column / Row
-        children: [
-
-          Text("Home Screen", style: TextStyle(
-              color:  Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold
+        appBar: AppBar(
+          toolbarHeight: 100,
+          elevation: 70,
+          leading: Icon(Icons.store, size: 36),
+          actions: [
+            Icon(Icons.search, size: 36)
+          ],
+          centerTitle: true,
+          title: Text('Home', style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 26
           ),),
+          backgroundColor: Colors.green,
 
-          Text("Home", style: TextStyle(
-              color:  Colors.white,
-              fontSize: 26,
-              fontWeight: FontWeight.bold
-          ),),
+        ),
 
-          Text('Hello'),
-          Icon(Icons.adb_outlined, color: Colors.amber, size: 80,)
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('This is mod 5 Assignment', style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                ),)
 
-        ],
-      ),
+              ],
 
+            ),
+
+            RichText(text: TextSpan(
+                text: 'My ',
+                style: TextStyle(
+                    color: Colors.pink,
+                    fontSize: 28
+                ),
+
+                children: [
+                  TextSpan(
+                      text: 'phone ',
+                      style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 18
+                      )
+                  ),
+                  TextSpan(
+                      text: 'name ',
+                      style: TextStyle(
+                          color: Colors.purpleAccent,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold
+                      )
+                  ),
+                  TextSpan(
+                      text: 'Your phone name',
+                      style: TextStyle(
+                          color: Colors.orange
+                      )
+                  )
+                ]
+
+            ))
+          ],
+        )
     );
   }
 }
