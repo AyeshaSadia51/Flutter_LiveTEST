@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 45,
+              radius: 43,
               backgroundColor: Colors.green,
               child: Icon(
                 Icons.person, size: 80, color: Colors.white,
