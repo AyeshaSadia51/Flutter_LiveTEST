@@ -24,68 +24,46 @@ class HomeScreen extends StatelessWidget{
         backgroundColor: Colors.white,
 
         appBar: AppBar(
-          toolbarHeight: 100,
-          elevation: 70,
-          leading: Icon(Icons.store, size: 36),
-          actions: [
-            Icon(Icons.search, size: 36)
-          ],
+
           centerTitle: true,
-          title: Text('Home', style: TextStyle(
-              fontWeight: FontWeight.bold,
+          title: Text('Profile', style: TextStyle(
               fontSize: 26
           ),),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
 
         ),
 
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            CircleAvatar(
+              radius: 45,
+              backgroundColor: Colors.green,
+              child: Icon(
+                Icons.person, size: 80, color: Colors.white,
+              ),
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('This is mod 5 Assignment', style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
+                Text('Jhon Doe', style: TextStyle(
+                    fontSize: 35,
+                    color: Colors.green
                 ),)
-
               ],
 
             ),
 
             RichText(text: TextSpan(
-                text: 'My ',
+                text: 'Flutter batch 4 ',
                 style: TextStyle(
-                    color: Colors.pink,
+                    color: Colors.blue,
                     fontSize: 28
                 ),
 
-                children: [
-                  TextSpan(
-                      text: 'phone ',
-                      style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontSize: 18
-                      )
-                  ),
-                  TextSpan(
-                      text: 'name ',
-                      style: TextStyle(
-                          color: Colors.purpleAccent,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold
-                      )
-                  ),
-                  TextSpan(
-                      text: 'Your phone name',
-                      style: TextStyle(
-                          color: Colors.orange
-                      )
-                  )
-                ]
+            )),
 
-            ))
           ],
         )
     );
