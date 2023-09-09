@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget{
           title: Text('Profile', style: TextStyle(
               fontSize: 26
           ),),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.pinkAccent,
 
         ),
 
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget{
           children: [
             CircleAvatar(
               radius: 43,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.purple,
               child: Icon(
                 Icons.person, size: 80, color: Colors.white,
               ),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget{
               children: [
                 Text('Jhon Doe', style: TextStyle(
                     fontSize: 35,
-                    color: Colors.green
+                    color: Colors.pinkAccent
                 ),)
               ],
 
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget{
 
             Text('Flutter Batch 4 ',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.purple,
                     fontSize: 28
                 ),
 
