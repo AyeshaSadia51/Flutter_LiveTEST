@@ -17,55 +17,42 @@ class MyApp extends StatelessWidget{
 }
 
 class HomeScreen extends StatelessWidget{
+  List<String> items = [
+    'Apples',
+    'Bananas',
+    'Bread',
+    'Milk',
+    'Eggs'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-        backgroundColor: Colors.white,
-
         appBar: AppBar(
-
           centerTitle: true,
-          title: Text('Profile', style: TextStyle(
-              fontSize: 26
+          title: Text('My Shopping List', style: TextStyle(
+              fontSize: 24
           ),),
+          actions: [Icon(Icons.shopping_cart_rounded, size: 28,)],
           backgroundColor: Colors.blue,
 
         ),
 
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 45,
-              backgroundColor: Colors.green,
-              child: Icon(
-                Icons.person, size: 80, color: Colors.white,
-              ),
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Jhon Doe', style: TextStyle(
-                    fontSize: 35,
-                    color: Colors.green
-                ),)
-              ],
-
-            ),
-
-            RichText(text: TextSpan(
-                text: 'Flutter batch 4 ',
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 28
-                ),
-
-            )),
-
-          ],
-        )
+       body: Scrollbar(
+         child: ListView.separated(
+         itemCount: items.length,
+         itemBuilder: ( context, index) {
+           return ListTile(
+             title: Text(items[index]),
+             leading: Icon(Icons.shopping_basket),
+           );
+         },
+         separatorBuilder: ( context, index) {
+           return Divider();
+         },
+         )
+       )
     );
   }
 }
