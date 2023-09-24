@@ -42,7 +42,7 @@ class _CounterScreenState extends State<CounterScreen> {
           title: Text('Button pressed $count times'),
           actions:[
             TextButton(
-              child: Text('Close'),
+              child: Text('Close', style: TextStyle(fontSize: 20),),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -57,7 +57,7 @@ class _CounterScreenState extends State<CounterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter App'),
+        title: Text('Counter App', style: TextStyle(fontSize: 24),),
       ),
       body: Center(
         child: Column(
