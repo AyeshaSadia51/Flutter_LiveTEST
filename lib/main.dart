@@ -1,58 +1,88 @@
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: HomeScreen(),
-      title: 'LiveTEST APP',
+      home: CounterScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget{
-  List<String> items = [
-    'Apples',
-    'Bananas',
-    'Bread',
-    'Milk',
-    'Eggs'
-  ];
+class CounterScreen extends StatefulWidget {
+  @override
+  _CounterScreenState createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+  int count = 0;
+  void _increase() {
+    setState(() {
+      count++;
+      if (count >= 5) {
+        _showDialog();
+      }
+    });
+  }
+  void _decrease() {
+    setState(() {
+      if (count > 0) {
+        count--;
+      }
+    });
+  }
+  void _showDialog() {
+    showDialog(
+      context: context, builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Button pressed $count times'),
+          actions:[
+            TextButton(
+              child: Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('My Shopping List', style: TextStyle(
-              fontSize: 24
-          ),),
-          actions: [Icon(Icons.shopping_cart_rounded, size: 28,)],
-          backgroundColor: Colors.blue,
-
+      appBar: AppBar(
+        title: Text('Counter App'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Count:', style: TextStyle(fontSize: 22),),
+            Text('$count', style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),),
+            SizedBox(height: 22),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _increase,
+                  child: Text('+', style: TextStyle(fontSize: 30),),
+                ),
+                SizedBox(width: 22),
+                ElevatedButton(
+                  onPressed: _decrease,
+                  child: Text('-', style: TextStyle(fontSize: 30)),
+                ),
+              ],
+            ),
+          ],
         ),
-
-       body: Scrollbar(
-         child: ListView.separated(
-         itemCount: items.length,
-         itemBuilder: ( context, index) {
-           return ListTile(
-             title: Text(items[index]),
-             leading: Icon(Icons.shopping_basket),
-           );
-         },
-         separatorBuilder: ( context, index) {
-           return Divider();
-         },
-         )
-       )
+      ),
     );
   }
 }
