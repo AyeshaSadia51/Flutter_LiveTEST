@@ -8,81 +8,61 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CounterScreen(),
+      debugShowCheckedModeBanner: false,
+      home: homepage(),
     );
   }
 }
-
-class CounterScreen extends StatefulWidget {
-  @override
-  _CounterScreenState createState() => _CounterScreenState();
-}
-
-class _CounterScreenState extends State<CounterScreen> {
-  int count = 0;
-  void _increase() {
-    setState(() {
-      count++;
-      if (count >= 5) {
-        _showDialog();
-      }
-    });
-  }
-  void _decrease() {
-    setState(() {
-      if (count > 0) {
-        count--;
-      }
-    });
-  }
-  void _showDialog() {
-    showDialog(
-      context: context, builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Button pressed $count times'),
-          actions:[
-            TextButton(
-              child: Text('Close', style: TextStyle(fontSize: 20),),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+class homepage extends StatelessWidget {
+  const homepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter App', style: TextStyle(fontSize: 24),),
+        title: Text('News Feed'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Count:', style: TextStyle(fontSize: 22),),
-            Text('$count', style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),),
-            SizedBox(height: 22),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: _increase,
-                  child: Text('+', style: TextStyle(fontSize: 30),),
-                ),
-                SizedBox(width: 22),
-                ElevatedButton(
-                  onPressed: _decrease,
-                  child: Text('-', style: TextStyle(fontSize: 30)),
-                ),
-              ],
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return ImageFeed(orientation: orientation);
+        },
+      ),
+    );
+  }
+}
+class ImageFeed extends StatelessWidget {
+  final Orientation orientation;
+  ImageFeed({required this.orientation});
+  @override
+  Widget build(BuildContext context) {
+    final isPortrait = orientation == Orientation.portrait;
+    final itemCount = 10;
+    Widget buildItem(BuildContext context, int index) {
+      return Card(
+        color: Colors.white,
+        child: Center(
+          child: Container(
+            width: 150,
+            height: 150,
+            child: Image.network(
+              'https://via.placeholder.com/150',
+              fit: BoxFit.cover,
             ),
-          ],
+          ),
         ),
+      );
+    }
+
+    return isPortrait ? ListView.builder(
+      itemCount: itemCount,
+      itemBuilder: (context, index) => buildItem(context, index),
+    )
+        : GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
       ),
+      itemCount: itemCount,
+      itemBuilder: (context, index) => buildItem(context, index),
     );
   }
 }
