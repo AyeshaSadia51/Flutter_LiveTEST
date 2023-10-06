@@ -1,68 +1,131 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+void main(){
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: homepage(),
+      home: const HomeScreenState(),
+      title: "App",
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF9e9e9e),
+          ),
+        ),
+      ),
     );
   }
+
 }
-class homepage extends StatelessWidget {
-  const homepage({Key? key}) : super(key: key);
+
+class HomeScreenState extends StatefulWidget{
+  const HomeScreenState({super.key});
+
+  @override
+  State<StatefulWidget> createState() => HomeScreenUI();
+
+}
+
+class HomeScreenUI extends State<HomeScreenState>{
+  String activeOnClick = "null";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('News Feed'),
-      ),
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return ImageFeed(orientation: orientation);
-        },
-      ),
-    );
-  }
-}
-class ImageFeed extends StatelessWidget {
-  final Orientation orientation;
-  ImageFeed({required this.orientation});
-  @override
-  Widget build(BuildContext context) {
-    final isPortrait = orientation == Orientation.portrait;
-    final itemCount = 10;
-    Widget buildItem(BuildContext context, int index) {
-      return Card(
-        color: Colors.white,
-        child: Center(
-          child: Container(
-            width: 150,
-            height: 150,
-            child: Image.network(
-              'https://via.placeholder.com/150',
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+    void appSnackBar(context, String message){
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(message))
       );
     }
 
-    return isPortrait ? ListView.builder(
-      itemCount: itemCount,
-      itemBuilder: (context, index) => buildItem(context, index),
-    )
-        : GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Size Selector"),
       ),
-      itemCount: itemCount,
-      itemBuilder: (context, index) => buildItem(context, index),
+      body: Center(
+        child: Wrap(
+          children:[
+            ButtonBar(
+              alignment: MainAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "S";
+                      appSnackBar(context, "S");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "S" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("S")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "M";
+                      appSnackBar(context, "M");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "M" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("M")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "L";
+                      appSnackBar(context, "L");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "L" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("L")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "XL";
+                      appSnackBar(context, "XL");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "XL" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("XL")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "XXL";
+                      appSnackBar(context, "XXL");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "XXL" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("XXL")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      activeOnClick = "XXXL";
+                      appSnackBar(context, "XXXL");
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(activeOnClick == "XXXL" ? 0xFFff9800 : 0xFF9e9e9e),
+                    ),
+                    child: const Text("XXXL")
+                ),
+              ],
+            ),
+          ]
+        ),
+      ),
     );
   }
+
 }
