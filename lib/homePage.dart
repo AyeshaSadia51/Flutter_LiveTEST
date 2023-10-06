@@ -36,11 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Wrap(
-          spacing: 15,
-          runSpacing: 10,
+          spacing: 12,
+          runSpacing: 15,
           children: [
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -48,13 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'S');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'S' == selectedSize ? Colors.orange : Colors.grey,
+                  backgroundColor: 'S' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('S'),
               ),
             ),
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -62,13 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'M');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'M' == selectedSize ? Colors.orange : Colors.grey,
+                  backgroundColor: 'M' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('M'),
               ),
             ),
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -76,13 +76,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'L');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'L' == selectedSize ? Colors.orange : Colors.grey,
+                    backgroundColor: 'L' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('L'),
               ),
             ),
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -90,13 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'L');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'XL' == selectedSize ? Colors.orange : Colors.grey,
+                  backgroundColor: 'XL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('XL'),
               ),
             ),
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -104,13 +104,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'XXL');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'XXL' == selectedSize ? Colors.orange : Colors.grey,
+                  backgroundColor: 'XXL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('XXL'),
               ),
             ),
             SizedBox(
-              width: 80,
+              width: 85,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _showSnackBar(context, 'XXXL');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: 'XXXL' == selectedSize ? Colors.orange : Colors.grey,
+                  backgroundColor: 'XXXL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
                 child: Text('XXXL'),
               ),
