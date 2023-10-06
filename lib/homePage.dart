@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Size Selector"),
+        title: const Text("Size Selector"),
         centerTitle: true,
       ),
       body: Center(
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: 'S' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('S'),
+                child: const Text('S'),
               ),
             ),
             SizedBox(
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: 'M' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('M'),
+                child: const Text('M'),
               ),
             ),
             SizedBox(
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: 'L' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('L'),
+                child: const Text('L'),
               ),
             ),
             SizedBox(
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: 'XL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('XL'),
+                child: const Text('XL'),
               ),
             ),
             SizedBox(
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: 'XXL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('XXL'),
+                child: const Text('XXL'),
               ),
             ),
             SizedBox(
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: 'XXXL' == selectedSize ? Colors.orange : Colors.grey,
                 ),
-                child: Text('XXXL'),
+                child: const Text('XXXL'),
               ),
             ),
           ],
