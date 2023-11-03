@@ -5,31 +5,6 @@ void main() {
   runApp(WeatherInfoApp());
 }
 
-class WeatherDataSet {
-  final String cityName;
-  final double temperature;
-  final String condition;
-  final int humidity;
-  final double windSpeed;
-
-  WeatherDataSet(
-      {required this.cityName,
-      required this.temperature,
-      required this.condition,
-      required this.humidity,
-      required this.windSpeed});
-
-  factory WeatherDataSet.fromJson(Map<String, dynamic> json) {
-    return WeatherDataSet(
-      cityName: json['city'],
-      temperature: json['temperature'].toDouble(),
-      condition: json['condition'],
-      humidity: json['humidity'],
-      windSpeed: json['windSpeed'].toDouble(),
-    );
-  }
-}
-
 class WeatherInfoApp extends StatefulWidget {
   @override
   _WeatherInfoAppState createState() => _WeatherInfoAppState();
@@ -128,6 +103,31 @@ class _WeatherInfoAppState extends State<WeatherInfoApp> {
           },
         ),
       ),
+    );
+  }
+}
+
+class WeatherDataSet {
+  final String cityName;
+  final double temperature;
+  final String condition;
+  final int humidity;
+  final double windSpeed;
+
+  WeatherDataSet(
+      {required this.cityName,
+      required this.temperature,
+      required this.condition,
+      required this.humidity,
+      required this.windSpeed});
+
+  factory WeatherDataSet.fromJson(Map<String, dynamic> json) {
+    return WeatherDataSet(
+      cityName: json['city'],
+      temperature: json['temperature'].toDouble(),
+      condition: json['condition'],
+      humidity: json['humidity'],
+      windSpeed: json['windSpeed'].toDouble(),
     );
   }
 }
